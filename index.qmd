@@ -3,7 +3,11 @@ page-layout: full
 title-block-banner: false
 css: styles.css
 ---
-::: {.center}
 
+
+::: {.center_large}
+$$p(\theta|y)=\frac{p(y|\theta)p(\theta)}{\int p(y|\theta)p(\theta)\,d\theta}$$
+:::
+::: {.center}
 Investigating Bayesian Statistics in Python 
 :::

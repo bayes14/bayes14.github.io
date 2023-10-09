@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Bayes14",
     "section": "",
-    "text": "Investigating Bayesian Statistics in Python"
+    "text": "\\[p(\\theta|y)=\\frac{p(y|\\theta)p(\\theta)}{\\int p(y|\\theta)p(\\theta)\\,d\\theta}\\]\n\n\nInvestigating Bayesian Statistics in Python"
   },
   {
     "objectID": "posts/height/height.html",
