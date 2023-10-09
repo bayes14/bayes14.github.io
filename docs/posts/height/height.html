@@ -209,7 +209,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="analysis-of-height" class="level1">
 <h1>Analysis of Height</h1>
-<div class="cell" data-execution_count="186">
+<p>We will analyze height data</p>
+<div class="cell" data-execution_count="7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -225,32 +226,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>az.style.use([<span class="st">"arviz-darkgrid"</span>])</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>az.style.use([<span class="st">"arviz-darkgrid"</span>, <span class="st">"arviz-viridish"</span>])</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>] <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">6</span>]</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.dpi"</span>] <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.facecolor"</span>] <span class="op">=</span> <span class="st">"white"</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext autoreload</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>autoreload <span class="dv">2</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">"retina"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reload_ext watermark</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reload_ext autoreload</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>autoreload <span class="dv">2</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">"retina"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload</code></pre>
 </div>
-</div>
-<div class="cell" data-execution_count="187">
+<div class="cell" data-execution_count="8">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/rmcelreath/rethinking/master/data/Howell1.csv'</span>, sep<span class="op">=</span><span class="st">';'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/rmcelreath/rethinking/master/data/Howell1.csv'</span>, sep<span class="op">=</span><span class="st">';'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-</div>
-<div class="cell" data-execution_count="188">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="188">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -306,81 +299,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="189">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(data, hue<span class="op">=</span><span class="st">'male'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(data, hue<span class="op">=</span><span class="st">'male'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="height_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data, x<span class="op">=</span><span class="st">'height'</span>, y<span class="op">=</span><span class="st">'weight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="height_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="190">
+<div class="cell" data-execution_count="9">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data, x<span class="op">=</span><span class="st">'height'</span>, y<span class="op">=</span><span class="st">'weight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data, x<span class="op">=</span><span class="st">'age'</span>, y<span class="op">=</span><span class="st">'weight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <p><img src="height_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="191">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data, x<span class="op">=</span><span class="st">'age'</span>, y<span class="op">=</span><span class="st">'weight'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 <p>It seems that there is a linear relationship from age 0 to 18 and then it levels out. Males at a higher level.</p>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> gr.Digraph()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"height"</span>, label<span class="op">=</span><span class="st">"height"</span>, color<span class="op">=</span><span class="st">"deepskyblue"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"weight"</span>, label<span class="op">=</span><span class="st">"weight"</span>, color<span class="op">=</span><span class="st">"deepskyblue"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"male"</span>, label<span class="op">=</span><span class="st">"male"</span>, color<span class="op">=</span><span class="st">"deepskyblue"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"age"</span>, label<span class="op">=</span><span class="st">"age"</span>, color<span class="op">=</span><span class="st">"deepskyblue"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"height"</span>, head_name<span class="op">=</span><span class="st">"weight"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"age"</span>, head_name<span class="op">=</span><span class="st">"height"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"male"</span>, head_name<span class="op">=</span><span class="st">"height"</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"male"</span>, head_name<span class="op">=</span><span class="st">"weight"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> gr.Digraph()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"height"</span>, label<span class="op">=</span><span class="st">"height"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"weight"</span>, label<span class="op">=</span><span class="st">"weight"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"male"</span>, label<span class="op">=</span><span class="st">"male"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>g.node(name<span class="op">=</span><span class="st">"age"</span>, label<span class="op">=</span><span class="st">"age"</span>, style<span class="op">=</span><span class="st">"filled"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"height"</span>, head_name<span class="op">=</span><span class="st">"weight"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"age"</span>, head_name<span class="op">=</span><span class="st">"height"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"male"</span>, head_name<span class="op">=</span><span class="st">"height"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>g.edge(tail_name<span class="op">=</span><span class="st">"male"</span>, head_name<span class="op">=</span><span class="st">"weight"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="49">
-<p><img src="height_files/figure-html/cell-8-output-1.svg" class="img-fluid"></p>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<p><img src="height_files/figure-html/cell-7-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="basic-model" class="level1">
 <h1>Basic Model</h1>
 <p>No regressors</p>
-<div class="cell" data-execution_count="192">
+<div class="cell" data-execution_count="11">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data, x<span class="op">=</span><span class="st">'weight'</span>, kde<span class="op">=</span><span class="va">True</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Weight'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(data, x<span class="op">=</span><span class="st">'weight'</span>, kde<span class="op">=</span><span class="va">True</span>, hue<span class="op">=</span><span class="st">'male'</span>)<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Weight'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="192">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Text(0.5, 1.0, 'Histogram of Weight')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="87">
+<div class="cell" data-execution_count="12">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> basic_model:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">30</span>, sigma<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    idata_basic <span class="op">=</span> pm.sample()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_basic, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_basic, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> basic_model:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">30</span>, sigma<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    idata_basic <span class="op">=</span> pm.sample()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_basic, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_basic, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Sampling: [mass, mu, sigma]
@@ -470,152 +463,42 @@ Sampling: [mass]</code></pre>
     
 </div>
 </div>
-<div class="cell" data-execution_count="193">
+<div class="cell" data-execution_count="13">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_basic, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_basic, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="103">
+<div class="cell" data-execution_count="14">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>male_idx, male <span class="op">=</span> data[<span class="st">"male"</span>].astype(<span class="st">'category'</span>).factorize(sort<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>male_idx, male <span class="op">=</span> data[<span class="st">"male"</span>].astype(<span class="st">'category'</span>).factorize(sort<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="152">
+<div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> {</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"male"</span>: male,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"obs"</span>: <span class="bu">range</span>(<span class="bu">len</span>(data))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"male"</span>: male,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"obs"</span>: <span class="bu">range</span>(<span class="bu">len</span>(data))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="108">
+<div class="cell" data-execution_count="16">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> male_model:</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">30</span>, sigma<span class="op">=</span><span class="dv">1</span>, dims<span class="op">=</span><span class="st">"male"</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu[male_idx], sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    idata_male <span class="op">=</span> pm.sample()</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Sampling: [mass, mu, sigma]
-Auto-assigning NUTS sampler...
-Initializing NUTS using jitter+adapt_diag...
-Multiprocess sampling (4 chains in 4 jobs)
-NUTS: [sigma, mu]
-Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 1 seconds.
-Sampling: [mass]</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-</div>
-<div class="cell-output cell-output-display">
-
-    <div>
-      <progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [8000/8000 00:00&lt;00:00 Sampling 4 chains, 0 divergences]
-    </div>
-    
-</div>
-<div class="cell-output cell-output-display">
-
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-</div>
-<div class="cell-output cell-output-display">
-
-    <div>
-      <progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [4000/4000 00:00&lt;00:00]
-    </div>
-    
-</div>
-<div class="cell-output cell-output-display">
-
-<style>
-    /* Turns off some styling */
-    progress {
-        /* gets rid of default border in Firefox and Opera. */
-        border: none;
-        /* Needs to be in here for Safari polyfill so background images work as expected. */
-        background-size: auto;
-    }
-    progress:not([value]), progress:not([value])::-webkit-progress-bar {
-        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
-    }
-    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-        background: #F44336;
-    }
-</style>
-</div>
-<div class="cell-output cell-output-display">
-
-    <div>
-      <progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [4000/4000 00:00&lt;00:00]
-    </div>
-    
-</div>
-</div>
-<div class="cell" data-execution_count="109">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_male, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="112">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> age_model:</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.age, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    idata_age <span class="op">=</span> pm.sample()</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_age, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_age, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> male_model:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">30</span>, sigma<span class="op">=</span><span class="dv">1</span>, dims<span class="op">=</span><span class="st">"male"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu[male_idx], sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    idata_male <span class="op">=</span> pm.sample()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Sampling: [mass, mu, sigma]
@@ -705,27 +588,27 @@ Sampling: [mass]</code></pre>
     
 </div>
 </div>
-<div class="cell" data-execution_count="113">
+<div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_age, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_male, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="114">
+<div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_model:</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.height, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    idata_height <span class="op">=</span> pm.sample()</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> age_model:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.age, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    idata_age <span class="op">=</span> pm.sample()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_age, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_age, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Sampling: [mass, mu, sigma]
@@ -815,28 +698,138 @@ Sampling: [mass]</code></pre>
     
 </div>
 </div>
-<div class="cell" data-execution_count="115">
+<div class="cell" data-execution_count="19">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_age, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="126">
+<div class="cell" data-execution_count="20">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_exp_model:</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> pm.Normal(<span class="st">'e'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.height.values <span class="op">**</span> e, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    idata_height_exp <span class="op">=</span> pm.sample()</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height_exp, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height_exp, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_model:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.height, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    idata_height <span class="op">=</span> pm.sample()</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sampling: [mass, mu, sigma]
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, mu]
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 1 seconds.
+Sampling: [mass]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+    <div>
+      <progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress>
+      100.00% [8000/8000 00:00&lt;00:00 Sampling 4 chains, 0 divergences]
+    </div>
+    
+</div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+    <div>
+      <progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress>
+      100.00% [4000/4000 00:00&lt;00:00]
+    </div>
+    
+</div>
+<div class="cell-output cell-output-display">
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div>
+<div class="cell-output cell-output-display">
+
+    <div>
+      <progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress>
+      100.00% [4000/4000 00:00&lt;00:00]
+    </div>
+    
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="height_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_exp_model:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> pm.Normal(<span class="st">'e'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.Normal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu<span class="op">*</span>data.height.values <span class="op">**</span> e, sigma<span class="op">=</span>sigma, observed<span class="op">=</span>data.weight)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    idata_height_exp <span class="op">=</span> pm.sample()</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height_exp, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height_exp, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Sampling: [e, mass, mu, sigma]
@@ -844,8 +837,8 @@ Auto-assigning NUTS sampler...
 Initializing NUTS using jitter+adapt_diag...
 Multiprocess sampling (4 chains in 4 jobs)
 NUTS: [sigma, mu, e]
-Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
-There were 5 divergences after tuning. Increase `target_accept` or reparameterize.
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 24 seconds.
+There were 2 divergences after tuning. Increase `target_accept` or reparameterize.
 Sampling: [mass]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -870,7 +863,7 @@ Sampling: [mass]</code></pre>
 
     <div>
       <progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [8000/8000 00:20&lt;00:00 Sampling 4 chains, 5 divergences]
+      100.00% [8000/8000 00:23&lt;00:00 Sampling 4 chains, 2 divergences]
     </div>
     
 </div>
@@ -927,12 +920,12 @@ Sampling: [mass]</code></pre>
     
 </div>
 </div>
-<div class="cell" data-execution_count="127">
+<div class="cell" data-execution_count="23">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>az.summary(idata_height_exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>az.summary(idata_height_exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="127">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -960,32 +953,32 @@ Sampling: [mass]</code></pre>
 <td>0.000</td>
 <td>0.000</td>
 <td>0.000</td>
-<td>976.0</td>
-<td>1144.0</td>
+<td>1048.0</td>
+<td>1159.0</td>
 <td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">e</td>
-<td>2.609</td>
-<td>0.048</td>
-<td>2.524</td>
-<td>2.702</td>
-<td>0.002</td>
+<td>2.613</td>
+<td>0.045</td>
+<td>2.531</td>
+<td>2.699</td>
 <td>0.001</td>
-<td>976.0</td>
-<td>1118.0</td>
+<td>0.001</td>
+<td>1048.0</td>
+<td>1156.0</td>
 <td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">sigma</td>
-<td>3.870</td>
+<td>3.864</td>
 <td>0.108</td>
-<td>3.676</td>
-<td>4.084</td>
+<td>3.670</td>
+<td>4.072</td>
 <td>0.003</td>
 <td>0.002</td>
-<td>1652.0</td>
-<td>1581.0</td>
+<td>1785.0</td>
+<td>1734.0</td>
 <td>1.0</td>
 </tr>
 </tbody>
@@ -994,132 +987,29 @@ Sampling: [mass]</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="128">
+<div class="cell" data-execution_count="24">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height_exp, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height_exp, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="139">
+<div class="cell" data-execution_count="26">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>az.compare({<span class="st">'basic'</span>: idata_basic, <span class="st">'age'</span>: idata_age, <span class="st">'male'</span>: idata_male, <span class="st">'height'</span>: idata_height, <span class="st">'heigh_exp'</span>: idata_height_exp, <span class="st">'height_exp_male'</span>: idata_height_exp_male})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display" data-execution_count="139">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">rank</th>
-<th data-quarto-table-cell-role="th">elpd_loo</th>
-<th data-quarto-table-cell-role="th">p_loo</th>
-<th data-quarto-table-cell-role="th">elpd_diff</th>
-<th data-quarto-table-cell-role="th">weight</th>
-<th data-quarto-table-cell-role="th">se</th>
-<th data-quarto-table-cell-role="th">dse</th>
-<th data-quarto-table-cell-role="th">warning</th>
-<th data-quarto-table-cell-role="th">scale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">height_exp_male</td>
-<td>0</td>
-<td>-1524.374838</td>
-<td>5.303433</td>
-<td>0.000000</td>
-<td>8.665450e-01</td>
-<td>20.521787</td>
-<td>0.000000</td>
-<td>False</td>
-<td>log</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">heigh_exp</td>
-<td>1</td>
-<td>-1528.789340</td>
-<td>3.374519</td>
-<td>4.414502</td>
-<td>1.245465e-01</td>
-<td>20.625731</td>
-<td>3.742969</td>
-<td>False</td>
-<td>log</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">height</td>
-<td>2</td>
-<td>-1925.369594</td>
-<td>1.437219</td>
-<td>400.994756</td>
-<td>8.908504e-03</td>
-<td>12.588644</td>
-<td>21.859826</td>
-<td>False</td>
-<td>log</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">male</td>
-<td>3</td>
-<td>-2244.043232</td>
-<td>2.146733</td>
-<td>719.668394</td>
-<td>0.000000e+00</td>
-<td>12.727979</td>
-<td>23.946396</td>
-<td>False</td>
-<td>log</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">basic</td>
-<td>4</td>
-<td>-2244.925171</td>
-<td>1.502977</td>
-<td>720.550334</td>
-<td>0.000000e+00</td>
-<td>13.597773</td>
-<td>24.712621</td>
-<td>False</td>
-<td>log</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">age</td>
-<td>5</td>
-<td>-2305.565617</td>
-<td>2.804780</td>
-<td>781.190779</td>
-<td>2.322644e-10</td>
-<td>18.062763</td>
-<td>24.002201</td>
-<td>False</td>
-<td>log</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell" data-execution_count="153">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_exp_age_model:</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    height <span class="op">=</span> pm.ConstantData(<span class="st">'height'</span>, data.height.values)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>, dims<span class="op">=</span><span class="st">'male'</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> pm.Normal(<span class="st">'e'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>, dims<span class="op">=</span><span class="st">'male'</span>)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.TruncatedNormal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu[male_idx]<span class="op">*</span>height <span class="op">**</span> e[male_idx], sigma<span class="op">=</span>sigma, lower<span class="op">=</span><span class="dv">0</span>, observed<span class="op">=</span>data.weight, dims<span class="op">=</span><span class="st">'obs'</span>)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    idata_height_exp_male <span class="op">=</span> pm.sample()</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height_exp_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height_exp_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model(coords<span class="op">=</span>coords) <span class="im">as</span> height_exp_age_model:</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    height <span class="op">=</span> pm.ConstantData(<span class="st">'height'</span>, data.height.values)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> pm.Exponential(<span class="st">"sigma"</span>, <span class="dv">10</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> pm.Normal(<span class="st">'mu'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>, dims<span class="op">=</span><span class="st">'male'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    e <span class="op">=</span> pm.Normal(<span class="st">'e'</span>, mu<span class="op">=</span><span class="dv">1</span>, sigma<span class="op">=</span><span class="dv">2</span>, dims<span class="op">=</span><span class="st">'male'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> pm.TruncatedNormal(<span class="st">"mass"</span>, mu<span class="op">=</span>mu[male_idx]<span class="op">*</span>height <span class="op">**</span> e[male_idx], sigma<span class="op">=</span>sigma, lower<span class="op">=</span><span class="dv">0</span>, observed<span class="op">=</span>data.weight, dims<span class="op">=</span><span class="st">'obs'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    prior <span class="op">=</span> pm.sample_prior_predictive()</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    idata_height_exp_male <span class="op">=</span> pm.sample()</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    pm.compute_log_likelihood(idata_height_exp_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    pm.sample_posterior_predictive(idata_height_exp_male, extend_inferencedata<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Sampling: [e, mass, mu, sigma]
@@ -1127,10 +1017,8 @@ Auto-assigning NUTS sampler...
 Initializing NUTS using jitter+adapt_diag...
 Multiprocess sampling (4 chains in 4 jobs)
 NUTS: [sigma, mu, e]
-Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 123 seconds.
-The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
-The effective sample size per chain is smaller than 100 for some parameters.  A higher number is needed for reliable rhat and ess computation. See https://arxiv.org/abs/1903.08008 for details
-There were 74 divergences after tuning. Increase `target_accept` or reparameterize.
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 145 seconds.
+There were 4 divergences after tuning. Increase `target_accept` or reparameterize.
 Sampling: [mass]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1155,7 +1043,7 @@ Sampling: [mass]</code></pre>
 
     <div>
       <progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress>
-      100.00% [8000/8000 02:03&lt;00:00 Sampling 4 chains, 74 divergences]
+      100.00% [8000/8000 02:25&lt;00:00 Sampling 4 chains, 4 divergences]
     </div>
     
 </div>
@@ -1212,12 +1100,12 @@ Sampling: [mass]</code></pre>
     
 </div>
 </div>
-<div class="cell" data-execution_count="154">
+<div class="cell" data-execution_count="27">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>az.summary(idata_height_exp_male)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>az.summary(idata_height_exp_male)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="154">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -1245,9 +1133,9 @@ Sampling: [mass]</code></pre>
 <td>0.000</td>
 <td>0.000</td>
 <td>0.000</td>
-<td>92.0</td>
-<td>24.0</td>
-<td>1.03</td>
+<td>1441.0</td>
+<td>1453.0</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">mu[1]</td>
@@ -1257,45 +1145,45 @@ Sampling: [mass]</code></pre>
 <td>0.000</td>
 <td>0.000</td>
 <td>0.000</td>
-<td>1140.0</td>
-<td>1345.0</td>
-<td>1.01</td>
+<td>1352.0</td>
+<td>1300.0</td>
+<td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">e[0]</td>
-<td>2.780</td>
-<td>0.091</td>
-<td>2.637</td>
-<td>2.969</td>
-<td>0.010</td>
-<td>0.007</td>
-<td>92.0</td>
-<td>24.0</td>
-<td>1.03</td>
+<td>2.768</td>
+<td>0.081</td>
+<td>2.619</td>
+<td>2.922</td>
+<td>0.002</td>
+<td>0.002</td>
+<td>1442.0</td>
+<td>1426.0</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">e[1]</td>
-<td>2.624</td>
-<td>0.066</td>
-<td>2.499</td>
-<td>2.750</td>
+<td>2.623</td>
+<td>0.069</td>
+<td>2.488</td>
+<td>2.749</td>
 <td>0.002</td>
 <td>0.001</td>
-<td>1140.0</td>
-<td>1341.0</td>
-<td>1.01</td>
+<td>1351.0</td>
+<td>1304.0</td>
+<td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">sigma</td>
-<td>3.861</td>
+<td>3.867</td>
 <td>0.110</td>
-<td>3.664</td>
-<td>4.085</td>
+<td>3.675</td>
+<td>4.086</td>
+<td>0.003</td>
 <td>0.002</td>
-<td>0.002</td>
-<td>2249.0</td>
-<td>1910.0</td>
-<td>1.00</td>
+<td>1899.0</td>
+<td>1095.0</td>
+<td>1.0</td>
 </tr>
 </tbody>
 </table>
@@ -1303,50 +1191,46 @@ Sampling: [mass]</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="155">
+<div class="cell" data-execution_count="28">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height_exp_male, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>az.plot_ppc(data<span class="op">=</span>idata_height_exp_male, group<span class="op">=</span><span class="st">"posterior"</span>, kind<span class="op">=</span><span class="st">"kde"</span>, num_pp_samples<span class="op">=</span><span class="dv">500</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="195">
+<div class="cell" data-execution_count="29">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>az.plot_lm(idata<span class="op">=</span>idata_height_exp_male, y<span class="op">=</span><span class="st">'mass'</span>, x<span class="op">=</span><span class="st">'height'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>az.plot_lm(idata<span class="op">=</span>idata_height_exp_male, y<span class="op">=</span><span class="st">'mass'</span>, x<span class="op">=</span><span class="st">'height'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="195">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>array([[&lt;Axes: xlabel='height', ylabel='mass'&gt;]], dtype=object)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="height_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+<p><img src="height_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="33">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>quarto render height.ipynb <span class="op">--</span>to html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>watermark</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>pandoc 
-  to: html
-  output-file: height.html
-  standalone: true
-  section-divs: true
-  html-math-method: mathjax
-  wrap: none
-  default-image-extension: png
-  
-metadata
-  document-css: false
-  link-citations: true
-  date-format: long
-  lang: en
-  title: Analysis of Height
-  
-Output created: height.html
+<pre><code>Last updated: 2023-10-09T23:52:57.249863+02:00
+
+Python implementation: CPython
+Python version       : 3.11.5
+IPython version      : 8.15.0
+
+Compiler    : Clang 14.0.3 (clang-1403.0.22.14.1)
+OS          : Darwin
+Release     : 22.6.0
+Machine     : arm64
+Processor   : arm
+CPU cores   : 10
+Architecture: 64bit
 </code></pre>
 </div>
 </div>
