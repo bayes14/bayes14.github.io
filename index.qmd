@@ -1,7 +1,9 @@
 ---
-title: "Welcome"
 page-layout: full
 title-block-banner: false
+css: styles.css
 ---
+::: {.center}
 
-Investigating Bayesian Statistics in Python
+Investigating Bayesian Statistics in Python 
+:::

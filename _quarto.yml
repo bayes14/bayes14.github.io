@@ -13,6 +13,10 @@ website:
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
+  page-footer:
+    center: "Copyright 2023, Mads Chr. Hansen"
+  repo-url: https://github.com/bayes14/bayes14.github.io
+  repo-actions: [source]
 format:
   html:
     theme:
