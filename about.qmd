@@ -1,0 +1,48 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: trestles
+  image-width: 10em
+  links:
+    - icon: envelope
+      text: E-mail
+      href: mailto:madschansen@gmail.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com
+    - icon: github
+      text: Github
+      href: https://github.com/bayes14
+
+---
+
+I am a mathematician (PhD from [University of Copenhagen](https://www.math.ku.dk/english/)) and data scientist ([Maersk](https://maersk.com)). On this site you can find more information about me and some of my projects.
+
+## Research and Interests
+My research interests lie within dynamical systems theory, both deterministic and stochastic, especially within reaction networks.
+
+I also enjoy working on statistical properties of dynamical systems within time-series forecasting, and I'm interested in all aspects of Bayesian data analysis.
+
+### Papers:
+* Existence of a unique quasi-stationary distribution in stochastic reaction networks, [Electron. J. Probab. 25: 1-30 (2020)](https://projecteuclid.org/journals/electronic-journal-of-probability/volume-25/issue-none/Existence-of-a-unique-quasi-stationary-distribution-in-stochastic-reaction/10.1214/20-EJP445.full)
+
+* Structural classification of continuous time Markov chains with applications, [Stochastics, 94:7, 1003-1030 (2022)](https://www.tandfonline.com/doi/abs/10.1080/17442508.2021.2017937)
+
+* Full classification of dynamics for one-dimensional continuous-time Markov chains with polynomial transition rates, [Advances in Applied Probability , Volume 55, Issue 1, pp. 321 - 355 (2023)](https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/full-classification-of-dynamics-for-onedimensional-continuoustime-markov-chains-with-polynomial-transition-rates/E94F590AA003981FDED8AA5CD22CDD1A)
+
+* The asymptotic tails of limit distributions of continuous time Markov chains, [Advances in Applied Probability Volume 56, Issue 2 (to appear 2024)](https://arxiv.org/abs/2007.11390)
+
+### Tech Stack:
+
+::: {layout-nrow=2}
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--PmtGWeEE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/altlbm1vka194t8ke29t.png)
+
+![](https://raw.githubusercontent.com/pymc-devs/pymc/main/docs/logos/PyMC.png)
+
+![](https://python.arviz.org/en/0.14.0/_static/logo.png)
+
+![](https://tim-abwao.github.io/assets/images/toolkit/seaborn-logo.png)
+
+![](https://training.galaxyproject.org/training-material/topics/climate/images/dataset-diagram-logo.png)
+:::
