@@ -31,7 +31,7 @@ I also enjoy working on statistical properties of dynamical systems within time-
 
 * Full classification of dynamics for one-dimensional continuous-time Markov chains with polynomial transition rates, [Advances in Applied Probability , Volume 55, Issue 1, pp. 321 - 355 (2023)](https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/full-classification-of-dynamics-for-onedimensional-continuoustime-markov-chains-with-polynomial-transition-rates/E94F590AA003981FDED8AA5CD22CDD1A)
 
-* The asymptotic tails of limit distributions of continuous time Markov chains, [Advances in Applied Probability Volume 56, Issue 2 (to appear 2024)](https://arxiv.org/abs/2007.11390)
+* The asymptotic tails of limit distributions of continuous time Markov chains, [Advances in Applied Probability Volume 56, Issue 2 (2024)](https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/asymptotic-tails-of-limit-distributions-of-continuoustime-markov-chains/A2126D5E4A476E5DFF1E94DE0D65ADAB#metrics)
 
 ### Tech Stack:
 
