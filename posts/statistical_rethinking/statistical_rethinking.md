@@ -2,7 +2,7 @@
 title: "Statistical Rethinking"
 author: "Mads Chr. Hansen"
 date: "2023-10-08"
-categories: [PyMC]
+categories: [PyMC, Books]
 ---
 
 Richard McElreath has done a remarkable job in explaining Bayesian statistics in his book "Statistical Rethinking"
