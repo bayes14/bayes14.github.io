@@ -7,12 +7,12 @@ website:
   navbar:
     left:
       - posts.qmd
-    right:
       - about.qmd
+    right:
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/bayes14/
+      - icon: linkedin
+        href: https://linkedin.com
   page-footer:
     center: "Copyright 2023, Mads Chr. Hansen"
   repo-url: https://github.com/bayes14/bayes14.github.io
