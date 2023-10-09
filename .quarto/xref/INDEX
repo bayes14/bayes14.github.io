@@ -19,5 +19,8 @@
   },
   "posts.qmd": {
     "posts.html": "9cabe00d"
+  },
+  "posts/statistical_rethinking/statistical_rethinking.md": {
+    "statistical_rethinking.html": "93b25309"
   }
 }
