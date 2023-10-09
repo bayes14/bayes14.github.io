@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Posts",
     "section": "",
-    "text": "Flight Delays\n\n\n\nPyMC\n\n\n\n\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHeight\n\n\n\nPyMC\n\n\n\n\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical Rethinking\n\n\n\nPyMC\n\n\nBooks\n\n\n\n\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Flight Delays\n\n\n1 min\n\n\n\nPyMC\n\n\n\nAnalyzing flight delays with PyMC\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHeight\n\n\n1 min\n\n\n\nPyMC\n\n\n\nAnalyzing height with PyMC\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistical Rethinking\n\n\n1 min\n\n\n\nPyMC\n\n\nBooks\n\n\n\nBayesian Course by Richard McElreath\n\n\n\nMads Chr. Hansen\n\n\nOct 8, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -32,7 +32,7 @@
     "href": "posts/statistical_rethinking/statistical_rethinking.html",
     "title": "Statistical Rethinking",
     "section": "",
-    "text": "Richard McElreath has done a remarkable job in explaining Bayesian statistics in his book “Statistical Rethinking”\n\n\nLectures\nHis lectures are highly recommended as well.\n\nYou can find PyMC resources here."
+    "text": "Richard McElreath has done a remarkable job in explaining Bayesian statistics in his book “Statistical Rethinking”\n\n\nLectures\nHis lectures are highly recommended as well.\n\nYou can find PyMC resources here.\n\n\nJust testing\n\\[\\int_{1}^{5}x^2\\,dx\\]"
   },
   {
     "objectID": "about.html",
