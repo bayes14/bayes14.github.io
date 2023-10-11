@@ -1,26 +1,20 @@
 {
-  "index.qmd": {
-    "index.html": "c51e3839"
-  },
-  "posts/post-with-code/index.qmd": {
-    "index.html": "a4681755"
-  },
-  "posts/welcome/index.qmd": {
-    "index.html": "83d660ac"
-  },
-  "about.qmd": {
-    "about.html": "b4629e29"
-  },
   "posts/flights/flight_delays.ipynb": {
-    "flight_delays.html": "8dd67812"
+    "flight_delays.html": "98d566b4"
   },
   "posts/height/height.ipynb": {
-    "height.html": "929ea3b1"
-  },
-  "posts.qmd": {
-    "posts.html": "9cabe00d"
+    "height.html": "400a6c56"
   },
   "posts/statistical_rethinking/statistical_rethinking.md": {
-    "statistical_rethinking.html": "93b25309"
+    "statistical_rethinking.html": "033993d7"
+  },
+  "index.qmd": {
+    "index.html": "aa45365c"
+  },
+  "about.qmd": {
+    "about.html": "25535c3c"
+  },
+  "posts.qmd": {
+    "posts.html": "581cf197"
   }
 }
