@@ -231,12 +231,21 @@ div.csl-indent {
 
 <section id="bayesian-inference" class="level1">
 <h1>Bayesian Inference</h1>
-<p>This presentation follows <span class="citation" data-cites="Gelman2014">Gelman et al. (<a href="#ref-Gelman2014" role="doc-biblioref">2014</a>)</span> closely. Bayesian inference is about learning unobserved parameters <span class="math inline">\(\theta\)</span> or data <span class="math inline">\(\tilde{y}\)</span> though probability. These probability statements are conditional on the observed data <span class="math inline">\(y\)</span>, that is <span class="math inline">\(p(\theta|y)\)</span> or <span class="math inline">\(p(\tilde{y}|y)\)</span>.</p>
+<p>This presentation follows <span class="citation" data-cites="Gelman2014">Gelman et al. (<a href="#ref-Gelman2014" role="doc-biblioref">2014</a>)</span> closely. Bayesian inference is about learning unobserved parameters <span class="math inline">\(\theta\)</span> or data <span class="math inline">\(\tilde{y}\)</span> though probability. These probability statements are conditional on the observed data <span class="math inline">\(y\)</span>, that is <span class="math inline">\(p(\theta|y)\)</span> or <span class="math inline">\(p(\tilde{y}|y)\)</span>. We also inplicitly condition on known covariates <span class="math inline">\(x\)</span>.</p>
+<p>We may write for example <span class="math inline">\(\theta \sim N(\mu,\sigma^2)\)</span> or <span class="math inline">\(p(\theta)=N(\theta|\mu,\sigma^2)\)</span>, which is short hand for <span class="math inline">\(p(\theta|\mu,\sigma^2) = N(\theta| \mu,\sigma^2)\)</span>.</p>
 <section id="bayes-rule" class="level2">
 <h2 class="anchored" data-anchor-id="bayes-rule">Bayes’ Rule</h2>
+<p>To make probability statements about parameters <span class="math inline">\(\theta\)</span> given the data <span class="math inline">\(y\)</span>, we must specify a <em>model</em> in terms of the joint distribution for <span class="math inline">\(\theta\)</span> and <span class="math inline">\(y\)</span>. Thic can be written as the product of the prior <span class="math inline">\(p(\theta)\)</span> and the sampling distribution <span class="math inline">\(p(y|\theta)\)</span>, <span class="math display">\[p(\theta, y) = p(y|\theta)p(\theta).\]</span> Conditioning on the known data yields the posterior density <span class="math display">\[p(\theta|y) = \frac{p(\theta, y)}{p(y)}=\frac{p(y|\theta)p(\theta)}{p(y)}\]</span> Note that by integrating over all possible values of <span class="math inline">\(\theta\)</span>, we may actually write <span class="math display">\[p(y)=\int_{\theta}p(y, \theta)\,d\theta=\int_\theta p(y|\theta)p(\theta)\,d\theta\]</span> wehereby we arrive at the following fundamental identity of Bayesion inference <span id="eq-posterior"><span class="math display">\[p(\theta|y) =\frac{p(y|\theta)p(\theta)}{\int_\theta p(y|\theta)p(\theta)\,d\theta} \tag{1}\]</span></span></p>
 </section>
 <section id="prediction" class="level2">
 <h2 class="anchored" data-anchor-id="prediction">Prediction</h2>
+<p>To make inferences about an unknown observable i.e.&nbsp;predictive inference, we may reason similarly. After the data <span class="math inline">\(y\)</span> has been observed, we can predicct <span class="math inline">\(\tilde{y}\)</span> as follows <span class="math display">\[
+\begin{align}
+p(\tilde{y}|y)&amp;= \int_\theta p(\tilde{y}, \theta| y)\,d\theta\\
+&amp;=\int_\theta p(\tilde{y}| \theta, y)p(\theta|y)\,d\theta\\
+&amp;= \int_\theta p(\tilde{y}| \theta)p(\theta|y)\,d\theta
+\end{align}
+\]</span> Thus it is the weighted sum of all possible values with the weight being the updated posterior probability informed by the <span class="math inline">\(y\)</span> observations.</p>
 </section>
 <section id="likelihood" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood">Likelihood</h2>
@@ -672,15 +681,36 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bayesian Inference</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>This presentation follows @Gelman2014 closely. Bayesian inference is about learning unobserved parameters $\theta$ or data $\tilde{y}$ though probability. These probability statements are conditional on the observed data $y$, that is $p(\theta|y)$ or $p(\tilde{y}|y)$.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>This presentation follows @Gelman2014 closely. Bayesian inference is about learning unobserved parameters $\theta$ or data $\tilde{y}$ though probability. These probability statements are conditional on the observed data $y$, that is $p(\theta|y)$ or $p(\tilde{y}|y)$. We also inplicitly condition on known covariates $x$.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayes' Rule</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>We may write for example $\theta \sim N(\mu,\sigma^2)$ or $p(\theta)=N(\theta|\mu,\sigma^2)$, which is short hand for $p(\theta|\mu,\sigma^2) = N(\theta| \mu,\sigma^2)$.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prediction</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayes' Rule</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Likelihood</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>To make probability statements about parameters $\theta$ given the data $y$, we must specify a *model* in terms of the joint distribution for $\theta$ and $y$. Thic can be written as the product of the prior $p(\theta)$ and the sampling distribution $p(y|\theta)$,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>$$p(\theta, y) = p(y|\theta)p(\theta).$$</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Conditioning on the known data yields the posterior density</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>$$p(\theta|y) = \frac{p(\theta, y)}{p(y)}=\frac{p(y|\theta)p(\theta)}{p(y)}$$</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Note that by integrating over all possible values of $\theta$, we may actually write</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>$$p(y)=\int_{\theta}p(y, \theta)\,d\theta=\int_\theta p(y|\theta)p(\theta)\,d\theta$$</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>wehereby we arrive at the following fundamental identity of Bayesion inference</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>$$p(\theta|y) =\frac{p(y|\theta)p(\theta)}{\int_\theta p(y|\theta)p(\theta)\,d\theta}$${#eq-posterior}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prediction</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>To make inferences about an unknown observable i.e. predictive inference, we may reason similarly. After the data $y$ has been observed, we can predicct $\tilde{y}$ as follows</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>p(\tilde{y}|y)&amp;= \int_\theta p(\tilde{y}, \theta| y)\,d\theta<span class="sc">\\</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>&amp;=\int_\theta p(\tilde{y}| \theta, y)p(\theta|y)\,d\theta<span class="sc">\\</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>&amp;= \int_\theta p(\tilde{y}| \theta)p(\theta|y)\,d\theta</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Thus it is the weighted sum of all possible values with the weight being the updated posterior probability informed by the $y$ observations.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Likelihood</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
