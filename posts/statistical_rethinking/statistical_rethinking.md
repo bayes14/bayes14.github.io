@@ -5,10 +5,17 @@ author: "Mads Chr. Hansen"
 date: "2023-10-08"
 categories: [PyMC, Books]
 image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+format:
+  html:
+    code-fold: true
+    code-tools: true
 toc: true
+#citation: true
+callout-appearance: simple
+bibliography: ../../references.bib
 ---
 
-Richard McElreath has done a remarkable job in explaining Bayesian statistics in his book "Statistical Rethinking"
+Richard McElreath has done a remarkable job in explaining Bayesian statistics in his book [Statistical Rethinking @mcelreath2020]
 
 ![](https://xcelab.net/rm/wp-content/uploads/2019/12/sr2edcover-1-508x815.png){width=200}
 
