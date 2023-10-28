@@ -3,6 +3,7 @@
     "listing": "/posts.html",
     "items": [
       "/posts/squirrels/eda.html",
+      "/posts/bayes_course/bayes_course.html",
       "/posts/flights/flight_delays.html",
       "/posts/height/height.html",
       "/posts/statistical_rethinking/statistical_rethinking.html"
