@@ -45,4 +45,6 @@ I also enjoy working on statistical properties of dynamical systems within time-
 ![](https://tim-abwao.github.io/assets/images/toolkit/seaborn-logo.png)
 
 ![](https://training.galaxyproject.org/training-material/topics/climate/images/dataset-diagram-logo.png)
+
+![](https://avatars.githubusercontent.com/u/46794900?v=4)
 :::
