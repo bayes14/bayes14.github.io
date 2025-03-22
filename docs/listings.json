@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/bicycles/bicycles.html",
       "/posts/cherry_blossoms/cherry_blossoms.html",
       "/posts/squirrels/eda.html",
       "/posts/bayes_course/bayes_course.html",
